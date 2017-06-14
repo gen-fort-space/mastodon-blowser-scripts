@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>トゥートゥー変換</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="./tootoo_translator.js"></script>
+</head>
+<body>
+<!-- htmlは雑に書いてるけんあんま見んといて/// -->
+<p>
+    <textarea rows="10" cols="80" placeholder="変換したい文章" id="src_text"></textarea>
+</p>
+<p>　↓変換</p>
+<p>
+    <label>ネイティオ語</label><br>
+    <textarea rows="10" cols="80" id="result_too" disabled="disabled"></textarea>
+</p>
+<p>
+    <label>仮名読み</label><br>
+    <textarea rows="10" cols="80" id="result_kana" disabled="disabled"></textarea>
+</p>
+
+<script type="text/javascript">
+    $('#src_text').on('keyup', (e) => {
+        $('#result_too').val(tootoo_encoder($('#src_text').val()));
+        $('#result_kana').val(tootoo_decoder($('#src_text').val()));
+    })
+</script>
+</body>
+</html>
